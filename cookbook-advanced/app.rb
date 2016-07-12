@@ -9,4 +9,4 @@ controller = Controller.new(cookbook)
 router = Router.new(controller)
 
 # Start the app
-router.run
+# router.run

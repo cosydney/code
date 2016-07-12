@@ -19,9 +19,9 @@ class Recipe
   end
 
   def self.search(query)
-    url = "http://www.marmiton.org/recettes/recherche.aspx?aqt=#{query}"
-    doc = Nokogiri::HTML(open(url), nil, 'utf-8')
-    doc.search('.recette_classique').inject([]) do |recipes, element|
+    Nokogiri::HTML(open("http://www.marmiton.org/recettes/recherche.aspx?aqt=#{query}"), nil, 'utf-8')
+    .search('.recette_classique')
+    .inject([]) do |recipes, element|
       link = element.search('.m_titre_resultat a')
 
       recipes << Recipe.new(
@@ -39,16 +39,8 @@ class Recipe
   def import
     doc = Nokogiri::HTML(open(@link), nil, 'utf-8')
     @ingredients = doc.search('.m_content_recette_ingredients').inner_text
-    @prep_time = doc.search('.preptime').inner_text.to_i
+    @prep_time   = doc.search('.preptime').inner_text.to_i
     @description = doc.search('.m_content_recette_todo').inner_text
     self
   end
 end
-
-
-
-
-
-
-
-

@@ -12,8 +12,7 @@ class Controller
   end
 
   def create
-    attrs = @view.ask_recipe_attrs #return a hash {name: value, description: value}
-    @cookbook.add_recipe(Recipe.new(attrs))
+    @cookbook.add_recipe(Recipe.new(@view.ask_recipe_attrs))
     list
   end
 
@@ -25,17 +24,14 @@ class Controller
 
   def import
     # Ask the user for what he wants to search
-    query = @view.ask_search_query
     # Send the request to the website
-    results = Recipe.search(query)
+    results = Recipe.search(@view.ask_search_query)
     # Display the results
     @view.list(results)
     # Make the user pick one recipe
-    index = @view.ask_index
     # Go and get all the information of that recipe
-    recipe = results[index].import
     # Add the recipe to the cookbook
-    @cookbook.add_recipe(recipe)
+    @cookbook.add_recipe(results[@view.ask_index].import)
   end
 
   def toggle
@@ -44,7 +40,3 @@ class Controller
     list
   end
 end
-
-
-
-
