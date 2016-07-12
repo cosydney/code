@@ -1,4 +1,4 @@
-require_relative '../models/patient'
+require './models/patient'
 
 class PatientsRepository
   def initialize(rooms_repository)

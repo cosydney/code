@@ -1,4 +1,4 @@
-require_relative '../models/doctor'
+require './models/doctor'
 require 'csv'
 
 class DoctorsRepository

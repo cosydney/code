@@ -1,5 +1,5 @@
 # Require all repositories
-Dir["repositories/*.rb"].each {|file| require_relative file }
+Dir["repositories/*.rb"].each {|file| require "./" + file }
 
 # room1 = Room.new(capacity: 2)
 # room2 = Room.new(capacity: 3)

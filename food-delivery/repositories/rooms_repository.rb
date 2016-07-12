@@ -1,4 +1,4 @@
-require_relative '../models/room'
+require './models/room'
 require 'csv'
 
 class RoomsRepository
