@@ -1,5 +1,5 @@
 class Customer
-  attr_accessor :name, :address, :id
+  attr_accessor :name, :address, :id, :orders
 
   def initialize(attributes)
     @id = attributes[:id].to_i

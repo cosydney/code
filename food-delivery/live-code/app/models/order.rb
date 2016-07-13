@@ -5,8 +5,6 @@ class Order
     @id = attributes[:id].to_i
     @customer = attributes[:customer]
     @meal = attributes[:meal]
-    @delivered = eval(attributes[:delivered]) || false
+    @delivered = eval(attributes[:delivered].to_s) || false
   end
-
-
 end

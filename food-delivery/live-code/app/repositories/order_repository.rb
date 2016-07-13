@@ -13,7 +13,13 @@ class OrderRepository
   def add(order)
     order.id = @orders.size.zero? ? 1 : @orders[-1].id.next
     @orders << order
+    order.meal.add_order(order)
+    order.customer.add_order(order)
     save
+  end
+
+  def find(order_id)
+    @orders.find { |order| order.id == order_id }
   end
 
   def all(options = {})

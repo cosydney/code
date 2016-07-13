@@ -1,5 +1,5 @@
 class Meal
-  attr_accessor :name, :price, :id
+  attr_accessor :name, :price, :id, :orders
 
   def initialize(attributes)
     @id = attributes[:id].to_i
