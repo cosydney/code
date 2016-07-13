@@ -8,6 +8,15 @@ class EmployeeRepository
     load
   end
 
+  def find_for_login(credentials)
+    @employees.each do |e|
+      if e.username == credentials[:username] && e.password == credentials[:password]
+        return e
+      end
+    end
+    nil
+  end
+
   def add(employee)
     employee.id = @employees.size.zero? ? 1 : @employees[-1].id.next
     @employees << employee

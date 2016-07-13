@@ -12,6 +12,8 @@ Dir["./app/controllers/*.rb"].each {|file| require "./" + file }
 # repo = OrderRepository.new(meal_repo, cus_repo)
 # repo.add(order)
 #
+
+
 cus_repo = CustomerRepository.new
 meal_repo = MealRepository.new
 employee_repo = EmployeeRepository.new
@@ -42,7 +44,8 @@ order_repo = OrderRepository.new(meal_repo, cus_repo)
 Router.new(
   meals: MealsController.new(meal_repo),
   customers: CustomersController.new(cus_repo),
-  orders: OrdersController.new(employee_repo, order_repo, meal_repo, cus_repo)
+  orders: OrdersController.new(employee_repo, order_repo, meal_repo, cus_repo),
+  logins: LoginsController.new(employee_repo)
 ).run
 
 

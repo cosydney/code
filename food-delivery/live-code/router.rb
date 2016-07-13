@@ -7,6 +7,18 @@ class Router
   def run
     puts "Welcome to the Food Delivery!"
     puts "           --           "
+    puts "Please login with your known credentials"
+
+    tries = 0
+    loop do
+      employee = @controllers[:logins].login
+      break if employee
+
+      puts "Wrong credentials"
+      tries += 1
+
+      exit if tries == 3
+    end
 
     while @running
       display_tasks
