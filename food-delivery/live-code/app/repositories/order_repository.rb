@@ -15,6 +15,7 @@ class OrderRepository
     @orders << order
     order.meal.add_order(order)
     order.customer.add_order(order)
+    order.employee.add_order(order)
     save
   end
 

@@ -25,8 +25,9 @@ class Router
     when 3 then @controllers[:customers].create
     when 4 then @controllers[:customers].list
     when 5 then @controllers[:orders].list
+    when 6 then @controllers[:orders].create
     else
-      puts "Please press 1, 2, 3, 4 OR 5"
+      puts "Please press 1, 2, 3, 4, 5 OR 6"
     end
   end
 
@@ -42,5 +43,6 @@ class Router
     puts "3 - Add a customer"
     puts "4 - List all customers"
     puts "5 - View all undelivered orders"
+    puts "6 - Make an order"
   end
 end
