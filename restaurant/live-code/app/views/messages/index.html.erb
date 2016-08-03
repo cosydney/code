@@ -1,0 +1,11 @@
+<%= form_for Message.new do |f| %>
+  <%= f.text_field :username, placeholder: 'Username' %> | <%= f.text_field :body, placeholder: 'Message' %>
+  <%= f.submit 'Send' %>
+<% end %>
+<% @messages.each do |message| %>
+  <%= message.user_ip %> <strong><%= message.username %></strong> <%= message.body %>
+
+    <%= link_to "Delete this message", message_path(message),method: :delete %>
+    <%= link_to "#{message.likes} likes", like_message_path(message), method: :put %>
+  <hr />
+<% end %>
