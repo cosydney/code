@@ -1,0 +1,16 @@
+<p id="notice"><%= notice %></p>
+
+<%= @cocktail.name %>
+
+<ul>
+<% @cocktail.doses.select(&:persisted?).each do |dose| %>
+  <li><%= dose.description %> of <%= dose.ingredient.name %></li>
+<% end %>
+</ul>
+
+<%= simple_form_for([@cocktail, @dose]) do |f| %>
+  <%= f.input :description %>
+  <%= f.select :ingredient_id, options_from_collection_for_select(Ingredient.all, :id, :name) %>
+<% end %>
+<%= link_to 'Edit', edit_cocktail_path(@cocktail) %> |
+<%= link_to 'Back', cocktails_path %>
