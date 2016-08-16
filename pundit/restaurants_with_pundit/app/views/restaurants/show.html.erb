@@ -10,5 +10,8 @@
   <%= @restaurant.user %>
 </p>
 
+<%= t '.reviews', r: @restaurant.name %><br /><br />
+<%= t '.review_count', count: 2 %><br /><br />
+
 <%= link_to 'Edit', edit_restaurant_path(@restaurant) %> |
 <%= link_to 'Back', restaurants_path %>

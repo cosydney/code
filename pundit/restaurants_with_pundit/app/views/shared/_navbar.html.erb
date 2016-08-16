@@ -57,6 +57,9 @@
 
     <% end %>
 
+    <% I18n.available_locales.each do |locale| %>
+    <%= link_to locale.to_s.upcase, controller: params[:controller], action: params[:action], locale: locale == I18n.default_locale ? nil : locale %> |
+    <% end %>
     <!-- Button (call-to-action) -->
     <%= link_to t(".top_call_to_action", default: "Post stuff"), "#", class: "navbar-wagon-item navbar-wagon-button btn" %>
   </div>
