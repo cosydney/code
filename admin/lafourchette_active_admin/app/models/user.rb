@@ -4,7 +4,6 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
-  has_many :restaurants, dependent: :destroy
-  accepts_nested_attributes_for :client
-  accepts_nested_attributes_for :freelancer
+  has_many :restaurants
+  has_many :reviews
 end
